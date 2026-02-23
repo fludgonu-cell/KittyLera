@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>успокотительное для Леры❤️🐱</title>
+
+  <style>
+    :root{
+      --bg1:#0b1f14;
+      --bg2:#0f2d1d;
+
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.14);
+
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+
+      --mint:#a8ffd3;
+      --leaf:#2be38f;
+      --glow: rgba(46, 255, 170, .22);
+
+      --radius: 26px;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --blur: 14px;
+
+      --dur: 520ms;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      overflow:hidden;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(46,255,170,.18), transparent 55%),
+        radial-gradient(900px 600px at 80% 30%, rgba(42,210,140,.14), transparent 52%),
+        linear-gradient(180deg, var(--bg2), var(--bg1));
+    }
+
+    .mist{
+      position:fixed; inset:-20%;
+      pointer-events:none;
+      background:
+        radial-gradient(closest-side, rgba(168,255,211,.14), transparent 70%) 20% 30%/38% 38% no-repeat,
+        radial-gradient(closest-side, rgba(126,242,191,.12), transparent 72%) 70% 20%/42% 42% no-repeat,
+        radial-gradient(closest-side, rgba(43,227,143,.10), transparent 70%) 55% 75%/50% 50% no-repeat;
+      filter: blur(18px);
+      opacity:.9;
+      animation: floatMist 14s ease-in-out infinite alternate;
+    }
+    @keyframes floatMist{
+      from{ transform: translate3d(-2%, -1%, 0) scale(1); }
+      to{ transform: translate3d(2%, 1.5%, 0) scale(1.03); }
+    }
+
+    .wrap{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: max(12px, env(safe-area-inset-top)) 12px max(16px, env(safe-area-inset-bottom));
+    }
+
+    .phone{
+      width:min(420px, 100%);
+      height:min(780px, 100%);
+      position:relative;
+      border-radius: 34px;
+      padding: 14px;
+    }
+
+    .panel{
+      height:100%;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(0,0,0,.10), transparent);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--leaf);
+      box-shadow: 0 0 18px rgba(46,255,170,.45);
+      flex:0 0 auto;
+    }
+    .pageLabel{
+      font-size:14px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .bar{
+      margin-left:auto;
+      width: 45%;
+      height: 10px;
+      background: rgba(255,255,255,.10);
+      border-radius:999px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, rgba(168,255,211,.25), rgba(43,227,143,.85));
+      box-shadow: 0 0 18px rgba(46,255,170,.35);
+      border-radius:999px;
+      transition: width var(--dur) ease;
+    }
+
+    .content{
+      height: calc(100% - 54px);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding: 18px 16px 16px;
+      position:relative;
+    }
+
+    .pages{
+      position:relative;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* страницы */
+    .page{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      opacity:0;
+      transform: translateX(22px);
+      transition: opacity var(--dur) ease, transform var(--dur) ease;
+      pointer-events:none;
+    }
+    .page.active{
+      opacity:1;
+      transform: translateX(0);
+      pointer-events:auto;
+    }
+    .page.leavingLeft{ opacity:0; transform: translateX(-22px); pointer-events:none; }
+    .page.leavingRight{ opacity:0; transform: translateX(22px); pointer-events:none; }
+
+    .card{
+      border-radius: 26px;
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--stroke);
+      padding: 18px 16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      position:relative;
+      overflow:hidden;
+    }
+
+    h1,h2{ margin:0 0 10px; line-height:1.1; letter-spacing:.2px; }
+    h1{ font-size: 28px; text-shadow: 0 0 22px var(--glow); }
+    h2{ font-size: 20px; color: rgba(255,255,255,.92); }
+    p{ margin:0; color: var(--muted); font-size: 16px; line-height: 1.45; }
+
+    .accent{
+      background: linear-gradient(90deg, var(--mint), var(--leaf));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .controls{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+      margin-top: 14px;
+    }
+
+    .btn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.92);
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 15px;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select:none;
+      min-width: 120px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btnPrimary{
+      background: linear-gradient(90deg, rgba(168,255,211,.20), rgba(43,227,143,.38));
+      border-color: rgba(168,255,211,.25);
+      box-shadow: 0 0 0 1px rgba(46,255,170,.10) inset, 0 10px 24px rgba(0,0,0,.22);
+    }
+    .btnGhost{ opacity:.92; }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.90);
+      font-weight: 900;
+      cursor:pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pill:active{ transform: translateY(1px); }
+
+    .toast{
+      position:absolute;
+      left:50%;
+      bottom: 92px;
+      transform: translateX(-50%);
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.92);
+      font-size: 13px;
+      opacity:0;
+      transition: opacity 220ms ease;
+      pointer-events:none;
+      z-index: 80;
+      white-space: nowrap;
+    }
+    .toast.show{opacity:1}
+
+    /* Дыхание */
+    .breathBox{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .orb{
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(168,255,211,.60), rgba(43,227,143,.12) 55%, rgba(0,0,0,.0) 75%),
+        radial-gradient(circle at 55% 60%, rgba(43,227,143,.35), rgba(0,0,0,0) 65%);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 0 26px rgba(46,255,170,.18);
+      transform: scale(0.86);
+      will-change: transform;
+    }
+    .breathText{ flex:1; min-width:0; }
+    .phase{
+      font-weight: 900;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,.92);
+    }
+    .timerLine{
+      height: 10px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+      overflow:hidden;
+    }
+    .timerLine i{
+      display:block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(168,255,211,.22), rgba(43,227,143,.85));
+      border-radius: 999px;
+      will-change: width;
+    }
+
+    /* Падающие эмодзи */
+    .fallLayer{
+      position:absolute; inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index: 60;
+    }
+    .fallItem{
+      position:absolute;
+      top:-90px;
+      will-change: transform, opacity;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,.24));
+    }
+
+    /* Рисованные котики (SVG) */
+    .catArt{
+      width: 150px;
+      height: 110px;
+      margin: 2px 0 10px;
+      opacity:.98;
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,.18));
+    }
+    .catRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    /* Мантра */
+    .line{
+      display:block;
+      text-align:center;
+      font-size: 18px;
+      color: rgba(255,255,255,.86);
+      line-height: 1.35;
+    }
+
+    /* Ловля лапки — розовая плавающая */
+    .huntArea{
+      position:relative;
+      height: 220px;
+      border-radius: 22px;
+      border: 1px dashed rgba(255,255,255,.18);
+      background: rgba(0,0,0,.08);
+      overflow:hidden;
+      margin-top: 10px;
+    }
+    .targetPaw{
+      position:absolute;
+      width: 120px;  /* в 2 раза больше */
+      height: 120px;
+      border-radius: 28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select:none;
+      transform: translate3d(0,0,0);
+      will-change: transform;
+    }
+    .targetPaw svg{
+      width: 108px;
+      height: 108px;
+      display:block;
+      filter: drop-shadow(0 10px 14px rgba(0,0,0,.22));
+    }
+
+    .score{
+      margin-top: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.70);
+      font-weight: 800;
+    }
+
+    .surpriseText{
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 900;
+      text-align:center;
+      color: rgba(255,255,255,.92);
+      text-shadow: 0 0 18px rgba(46,255,170,.20);
+      min-height: 26px;
+    }
+
+    @media (max-height: 640px){
+      .orb{ width: 104px; height: 104px; }
+      h1{font-size: 26px;}
+      .huntArea{ height: 200px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mist"></div>
+
+  <div class="wrap">
+    <div class="phone">
+      <div class="panel" id="panel">
+        <div class="topbar">
+          <span class="dot"></span>
+          <div class="pageLabel" id="pageLabel">Страница 1 из 7</div>
+          <div class="bar"><i id="barFill"></i></div>
+        </div>
+
+        <div class="content">
+          <div class="pages" id="pages">
+
+            <!-- PAGE 1 -->
+            <section class="page active">
+              <div class="card">
+                <div class="catRow">
+                  <div>
+                    <h1><span class="accent">успокотительное</span> для Леры❤️🐱</h1>
+                    <div class="controls" style="margin-top:12px;">
+                      <button class="pill" id="soundBtn" type="button">🔊 Включить звук</button>
+                      <button class="pill" id="purrBtn" type="button">😺 Мурчание</button>
+                    </div>
+                  </div>
+
+                  <!-- котик 1 (зелёный) -->
+                  <svg class="catArt" viewBox="0 0 240 170" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="c1" x1="0" x2="1">
+                        <stop offset="0" stop-color="#7ef2bf" stop-opacity="0.95"/>
+                        <stop offset="1" stop-color="#2be38f" stop-opacity="0.85"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M60 60 L85 30 L100 65" fill="url(#c1)" opacity="0.95"/>
+                    <path d="M180 60 L155 30 L140 65" fill="url(#c1)" opacity="0.95"/>
+                    <circle cx="120" cy="95" r="62" fill="url(#c1)" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+                    <circle cx="96" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="144" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="93" cy="86" r="3" fill="rgba(255,255,255,.65)"/>
+                    <circle cx="141" cy="86" r="3" fill="rgba(255,255,255,.65)"/>
+                    <path d="M120 102 l-10 8 a14 14 0 0 0 20 0 z" fill="#ffb4c9" opacity=".9"/>
+                    <path d="M105 112 q15 16 30 0" stroke="rgba(0,0,0,.32)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M64 98 q20 8 38 0" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M176 98 q-20 8 -38 0" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card">
+                <h2>🐾</h2>
+                <p>Листай дальше.</p>
+              </div>
+            </section>
+
+            <!-- PAGE 2 -->
+            <section class="page">
+              <div class="card">
+                <div class="catRow">
+                  <div>
+                    <h2>Дыхание</h2>
+                    <p style="margin-bottom:12px;">вдох 4с → выдох 5с</p>
+
+                    <div class="breathBox">
+                      <div class="orb" id="orb"></div>
+                      <div class="breathText">
+                        <div class="phase" id="phaseText">Вдох… 4</div>
+                        <div class="timerLine"><i id="breathFill"></i></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- котик 2 (мятный) -->
+                  <svg class="catArt" viewBox="0 0 240 170" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="c2" x1="0" x2="1">
+                        <stop offset="0" stop-color="#a8ffd3" stop-opacity="0.95"/>
+                        <stop offset="1" stop-color="#7ef2bf" stop-opacity="0.90"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M60 60 L88 28 L102 65" fill="url(#c2)"/>
+                    <path d="M180 60 L152 28 L138 65" fill="url(#c2)"/>
+                    <circle cx="120" cy="95" r="62" fill="url(#c2)" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+                    <circle cx="96" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="144" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <path d="M120 102 l-10 8 a14 14 0 0 0 20 0 z" fill="#ffb4c9" opacity=".9"/>
+                    <path d="M105 112 q15 16 30 0" stroke="rgba(0,0,0,.32)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 3 -->
+            <section class="page">
+              <div class="card">
+                <div class="catRow">
+                  <div style="flex:1">
+                    <h2>Повторяй</h2>
+                    <span class="line">🐱 Я в безопасности.</span>
+                    <span class="line">🐾 Я справляюсь.</span>
+                    <span class="line">🌿 Мне можно отдыхать.</span>
+                    <span class="line">😺 Я рядом с собой.</span>
+                  </div>
+
+                  <!-- котик 3 (салатовый) -->
+                  <svg class="catArt" viewBox="0 0 240 170" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="c3" x1="0" x2="1">
+                        <stop offset="0" stop-color="#c6ffd9" stop-opacity="0.95"/>
+                        <stop offset="1" stop-color="#4bf0a5" stop-opacity="0.90"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M60 60 L86 26 L102 65" fill="url(#c3)"/>
+                    <path d="M180 60 L154 26 L138 65" fill="url(#c3)"/>
+                    <circle cx="120" cy="95" r="62" fill="url(#c3)" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+                    <circle cx="96" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="144" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="92" cy="86" r="3" fill="rgba(255,255,255,.7)"/>
+                    <circle cx="140" cy="86" r="3" fill="rgba(255,255,255,.7)"/>
+                    <path d="M120 102 l-10 8 a14 14 0 0 0 20 0 z" fill="#ffb4c9" opacity=".9"/>
+                    <path d="M105 112 q15 16 30 0" stroke="rgba(0,0,0,.32)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card">
+                <h2>Нажми</h2>
+                <p>мягкий звук + лапки.</p>
+                <div class="controls">
+                  <button class="btn btnPrimary" id="meowBtn" type="button">🐱 Мяу</button>
+                  <button class="btn btnGhost" id="pawsBtn" type="button">🐾 Лапки</button>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 4 -->
+            <section class="page">
+              <div class="card">
+                <div class="catRow">
+                  <div>
+                    <h2>Тихо</h2>
+                    <p>просто листай или посиди.</p>
+                  </div>
+
+                  <!-- котик 4 (изумрудный) -->
+                  <svg class="catArt" viewBox="0 0 240 170" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="c4" x1="0" x2="1">
+                        <stop offset="0" stop-color="#46f0b0" stop-opacity="0.92"/>
+                        <stop offset="1" stop-color="#20c87f" stop-opacity="0.92"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M60 60 L88 28 L102 65" fill="url(#c4)"/>
+                    <path d="M180 60 L152 28 L138 65" fill="url(#c4)"/>
+                    <circle cx="120" cy="95" r="62" fill="url(#c4)" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+                    <circle cx="96" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="144" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <path d="M120 102 l-10 8 a14 14 0 0 0 20 0 z" fill="#ffb4c9" opacity=".9"/>
+                    <path d="M105 112 q15 16 30 0" stroke="rgba(0,0,0,.32)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 5 -->
+            <section class="page">
+              <div class="card">
+                <div class="catRow">
+                  <div style="flex:1">
+                    <h2>Поймай лапку</h2>
+                    <p>она плавает — нажми на неё 🐾</p>
+
+                    <div class="huntArea" id="huntArea">
+                      <div class="targetPaw" id="targetPaw" role="button" aria-label="Лапка">
+                        <!-- розовая лапка (SVG) -->
+                        <svg viewBox="0 0 128 128" aria-hidden="true">
+                          <circle cx="32" cy="42" r="14" fill="#ff67b0"/>
+                          <circle cx="52" cy="30" r="14" fill="#ff67b0"/>
+                          <circle cx="76" cy="30" r="14" fill="#ff67b0"/>
+                          <circle cx="96" cy="42" r="14" fill="#ff67b0"/>
+                          <path d="M64 52
+                                   c-18 0-32 14-32 30
+                                   c0 12 9 22 20 25
+                                   c7 2 17 2 24 0
+                                   c11-3 20-13 20-25
+                                   c0-16-14-30-32-30z"
+                                fill="#ff4aa0"/>
+                          <path d="M64 56
+                                   c-15 0-28 11-28 25
+                                   c0 9 7 17 16 19
+                                   c6 2 18 2 24 0
+                                   c9-2 16-10 16-19
+                                   c0-14-13-25-28-25z"
+                                fill="#ff7cbc" opacity="0.55"/>
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div class="score" id="huntScore">Поймано: 0</div>
+                  </div>
+
+                  <!-- котик 5 (мятно-белый) -->
+                  <svg class="catArt" viewBox="0 0 240 170" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="c5" x1="0" x2="1">
+                        <stop offset="0" stop-color="#e8fff2" stop-opacity="0.92"/>
+                        <stop offset="1" stop-color="#a8ffd3" stop-opacity="0.92"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M60 60 L88 28 L102 65" fill="url(#c5)"/>
+                    <path d="M180 60 L152 28 L138 65" fill="url(#c5)"/>
+                    <circle cx="120" cy="95" r="62" fill="url(#c5)" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+                    <circle cx="96" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="144" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <path d="M120 102 l-10 8 a14 14 0 0 0 20 0 z" fill="#ffb4c9" opacity=".9"/>
+                    <path d="M105 112 q15 16 30 0" stroke="rgba(0,0,0,.32)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 6 -->
+            <section class="page">
+              <div class="card">
+                <div class="catRow">
+                  <div>
+                    <h2>Лера 💚</h2>
+                    <p>
+                      Тебе можно отдыхать.  
+                      Ты настоящая — и это самое красивое.
+                    </p>
+                    <div class="controls" style="margin-top:12px;">
+                      <button class="btn btnPrimary" id="hugBtn" type="button">🫶 Обнимашка</button>
+                      <button class="btn btnGhost" id="purrBtn2" type="button">😺 Мурчание</button>
+                    </div>
+                  </div>
+
+                  <!-- котик 6 (зелёный тёмнее) -->
+                  <svg class="catArt" viewBox="0 0 240 170" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="c6" x1="0" x2="1">
+                        <stop offset="0" stop-color="#63f0b6" stop-opacity="0.92"/>
+                        <stop offset="1" stop-color="#17b26d" stop-opacity="0.92"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M60 60 L88 28 L102 65" fill="url(#c6)"/>
+                    <path d="M180 60 L152 28 L138 65" fill="url(#c6)"/>
+                    <circle cx="120" cy="95" r="62" fill="url(#c6)" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+                    <circle cx="96" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="144" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <path d="M120 102 l-10 8 a14 14 0 0 0 20 0 z" fill="#ffb4c9" opacity=".9"/>
+                    <path d="M105 112 q15 16 30 0" stroke="rgba(0,0,0,.32)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 7 -->
+            <section class="page">
+              <div class="card">
+                <div class="catRow">
+                  <div style="flex:1">
+                    <h2>Финал ✨</h2>
+                    <p>Нажми “Сюрприз”.</p>
+
+                    <div class="surpriseText" id="surpriseText"></div>
+
+                    <div class="controls">
+                      <button class="btn btnPrimary" id="surpriseBtn" type="button">✨ Сюрприз</button>
+                      <button class="btn btnGhost" id="restartBtn" type="button">🔁 Сначала</button>
+                    </div>
+                  </div>
+
+                  <!-- котик 7 (самый светлый) -->
+                  <svg class="catArt" viewBox="0 0 240 170" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="c7" x1="0" x2="1">
+                        <stop offset="0" stop-color="#f1fff8" stop-opacity="0.92"/>
+                        <stop offset="1" stop-color="#b8ffe0" stop-opacity="0.92"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M60 60 L88 28 L102 65" fill="url(#c7)"/>
+                    <path d="M180 60 L152 28 L138 65" fill="url(#c7)"/>
+                    <circle cx="120" cy="95" r="62" fill="url(#c7)" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+                    <circle cx="96" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="144" cy="90" r="10" fill="rgba(0,0,0,.35)"/>
+                    <circle cx="93" cy="86" r="3" fill="rgba(255,255,255,.7)"/>
+                    <circle cx="141" cy="86" r="3" fill="rgba(255,255,255,.7)"/>
+                    <path d="M120 102 l-10 8 a14 14 0 0 0 20 0 z" fill="#ffb4c9" opacity=".9"/>
+                    <path d="M105 112 q15 16 30 0" stroke="rgba(0,0,0,.32)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- навигация -->
+          <div class="controls">
+            <button class="btn btnGhost" id="backBtn" type="button">← Назад</button>
+            <button class="btn btnPrimary" id="nextBtn" type="button">Дальше →</button>
+          </div>
+
+          <div class="toast" id="toast">Ок</div>
+
+          <div class="fallLayer" id="fallLayer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------------------------
+    // Навигация без бага "пусто при Назад"
+    // ---------------------------
+    const pages = Array.from(document.querySelectorAll('.page'));
+    const pageLabel = document.getElementById('pageLabel');
+    const barFill = document.getElementById('barFill');
+    const nextBtn = document.getElementById('nextBtn');
+    const backBtn = document.getElementById('backBtn');
+
+    let idx = 0;
+    function setProgress(){
+      pageLabel.textContent = `Страница ${idx+1} из ${pages.length}`;
+      barFill.style.width = `${Math.round(((idx+1)/pages.length)*100)}%`;
+      backBtn.style.opacity = idx===0 ? .55 : 1;
+      nextBtn.textContent = idx===pages.length-1 ? 'Готово ✅' : 'Дальше →';
+    }
+
+    function clearPageClasses(){
+      pages.forEach(p=>{
+        p.classList.remove('leavingLeft','leavingRight');
+      });
+    }
+
+    function showPage(nextIndex){
+      if(nextIndex < 0 || nextIndex >= pages.length || nextIndex === idx) return;
+
+      const dir = nextIndex > idx ? 'forward' : 'back';
+      const cur = pages[idx];
+      const nxt = pages[nextIndex];
+
+      // важно: сбрасываем классы, чтобы "назад" не делал пусто
+      clearPageClasses();
+      pages.forEach(p=>{
+        if(p !== nxt) p.classList.remove('active');
+      });
+
+      // делаем next активной сразу
+      nxt.classList.add('active');
+
+      // текущую отправляем "уходить"
+      cur.classList.remove('active');
+      cur.classList.add(dir === 'forward' ? 'leavingLeft' : 'leavingRight');
+
+      // после анимации подчистим уходящую
+      setTimeout(()=>{
+        cur.classList.remove('leavingLeft','leavingRight');
+      }, 560);
+
+      idx = nextIndex;
+      setProgress();
+    }
+
+    nextBtn.addEventListener('click', ()=> showPage(idx+1));
+    backBtn.addEventListener('click', ()=> showPage(idx-1));
+    setProgress();
+
+    // ---------------------------
+    // Тост
+    // ---------------------------
+    const toast = document.getElementById('toast');
+    function showToast(text){
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(()=> toast.classList.remove('show'), 1200);
+    }
+
+    // ---------------------------
+    // Дыхание: вдох 4с → выдох 5с
+    // ---------------------------
+    const orb = document.getElementById('orb');
+    const phaseText = document.getElementById('phaseText');
+    const breathFill = document.getElementById('breathFill');
+
+    let breathPhase = 'inhale';
+    let phaseStart = performance.now();
+
+    function setOrbScale(scale){ orb.style.transform = `scale(${scale})`; }
+
+    function breathLoop(t){
+      const inhaleMs = 4000;
+      const exhaleMs = 5000;
+
+      if(breathPhase === 'inhale'){
+        const p = Math.min(1, (t - phaseStart) / inhaleMs);
+        const eased = 0.5 - Math.cos(p*Math.PI)/2;
+        setOrbScale(0.86 + eased*(1.05-0.86));
+        breathFill.style.width = `${Math.round(p*100)}%`;
+        phaseText.textContent = `Вдох… ${Math.max(0, Math.ceil(4 - p*4))}`;
+        if(p >= 1){ breathPhase = 'exhale'; phaseStart = t; }
+      }else{
+        const p = Math.min(1, (t - phaseStart) / exhaleMs);
+        const eased = 0.5 - Math.cos(p*Math.PI)/2;
+        setOrbScale(1.05 - eased*(1.05-0.86));
+        breathFill.style.width = `${Math.round((1-p)*100)}%`;
+        phaseText.textContent = `Выдох… ${Math.max(0, Math.ceil(5 - p*5))}`;
+        if(p >= 1){ breathPhase = 'inhale'; phaseStart = t; }
+      }
+      requestAnimationFrame(breathLoop);
+    }
+    requestAnimationFrame(breathLoop);
+
+    // ---------------------------
+    // Звук: мурчание + мяу (WebAudio)
+    // ---------------------------
+    const soundBtn = document.getElementById('soundBtn');
+    const purrBtn = document.getElementById('purrBtn');
+    const purrBtn2 = document.getElementById('purrBtn2');
+    const meowBtn = document.getElementById('meowBtn');
+
+    let audioCtx = null;
+    let master = null;
+
+    async function ensureAudio(){
+      if(!audioCtx){
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        master = audioCtx.createGain();
+        master.gain.value = 0.85;
+        master.connect(audioCtx.destination);
+      }
+      if(audioCtx.state !== 'running') await audioCtx.resume();
+    }
+
+    soundBtn.addEventListener('click', async ()=>{
+      await ensureAudio();
+      showToast('Звук включён ✅');
+    });
+
+    // мурчание
+    let purrOn = false;
+    let purrNodes = null;
+
+    function startPurr(){
+      const bufferSize = 2 * audioCtx.sampleRate;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const out = noiseBuffer.getChannelData(0);
+
+      let last = 0;
+      for(let i=0;i<bufferSize;i++){
+        const white = Math.random()*2 - 1;
+        last = (last*0.98) + (white*0.02);
+        out[i] = last * 0.9;
+      }
+
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = noiseBuffer;
+      noise.loop = true;
+
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 260;
+
+      const gain = audioCtx.createGain();
+      gain.gain.value = 0.0;
+
+      const lfo = audioCtx.createOscillator();
+      lfo.type = 'sine';
+      lfo.frequency.value = 26;
+
+      const lfoGain = audioCtx.createGain();
+      lfoGain.gain.value = 0.12;
+
+      lfo.connect(lfoGain);
+      lfoGain.connect(gain.gain);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(master);
+
+      const now = audioCtx.currentTime;
+      gain.gain.setValueAtTime(0.0, now);
+      gain.gain.linearRampToValueAtTime(0.22, now + 0.35);
+
+      noise.start();
+      lfo.start();
+
+      purrNodes = {noise, gain, lfo};
+      purrOn = true;
+      showToast('Мурчание 😺');
+    }
+
+    function stopPurr(){
+      if(!purrNodes) return;
+      const {noise, gain, lfo} = purrNodes;
+
+      const now = audioCtx.currentTime;
+      gain.gain.cancelScheduledValues(now);
+      gain.gain.setValueAtTime(gain.gain.value, now);
+      gain.gain.linearRampToValueAtTime(0.0, now + 0.25);
+
+      setTimeout(()=>{
+        try{ noise.stop(); }catch(e){}
+        try{ lfo.stop(); }catch(e){}
+        purrNodes = null;
+      }, 300);
+
+      purrOn = false;
+      showToast('Выключено');
+    }
+
+    function togglePurr(){ purrOn ? stopPurr() : startPurr(); }
+
+    purrBtn.addEventListener('click', async ()=>{
+      await ensureAudio();
+      togglePurr();
+    });
+    purrBtn2.addEventListener('click', async ()=>{
+      await ensureAudio();
+      togglePurr();
+    });
+
+    function playMeow(){
+      const osc = audioCtx.createOscillator();
+      osc.type = 'triangle';
+      const gain = audioCtx.createGain();
+
+      const now = audioCtx.currentTime;
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(320, now + 0.18);
+      osc.frequency.exponentialRampToValueAtTime(420, now + 0.28);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.14, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.34);
+
+      osc.connect(gain);
+      gain.connect(master);
+
+      osc.start(now);
+      osc.stop(now + 0.36);
+    }
+
+    // ---------------------------
+    // Падение эмодзи (лапки/котята)
+    // ---------------------------
+    const fallLayer = document.getElementById('fallLayer');
+    function random(min,max){ return Math.random()*(max-min)+min; }
+
+    function fallBurst({durationMs, count, emoji, sizePx}){
+      // не накапливаем мусор
+      while(fallLayer.firstChild) fallLayer.removeChild(fallLayer.firstChild);
+
+      const interval = Math.max(40, Math.floor(durationMs / count));
+      let made = 0;
+
+      const timer = setInterval(()=>{
+        made++;
+        const el = document.createElement('div');
+        el.className = 'fallItem';
+        el.textContent = emoji;
+        el.style.fontSize = sizePx + 'px';
+        el.style.left = random(2, 92) + '%';
+        el.style.opacity = String(random(0.72, 0.98));
+
+        fallLayer.appendChild(el);
+
+        const start = performance.now();
+        const fallDur = random(2600, 3800);
+        const drift = random(-50, 50);
+        const rot = random(-22, 22);
+        const startY = -100;
+        const endY = window.innerHeight + 160;
+
+        function tick(t){
+          const p = Math.min(1, (t-start)/fallDur);
+          const eased = 1 - Math.pow(1-p, 2.2);
+          const y = startY + (endY-startY)*eased;
+          el.style.transform = `translate3d(${drift}px, ${y}px, 0) rotate(${rot + p*18}deg)`;
+          el.style.opacity = String((1 - p) * 0.95);
+          if(p < 1) requestAnimationFrame(tick);
+          else el.remove();
+        }
+        requestAnimationFrame(tick);
+
+        if(made >= count) clearInterval(timer);
+      }, interval);
+
+      setTimeout(()=> clearInterval(timer), durationMs + 80);
+    }
+
+    // кнопки на 3 странице
+    document.getElementById('pawsBtn').addEventListener('click', ()=>{
+      fallBurst({durationMs: 4000, count: 16, emoji:'🐾', sizePx: 44});
+    });
+
+    meowBtn.addEventListener('click', async ()=>{
+      await ensureAudio();
+      playMeow();
+      fallBurst({durationMs: 4000, count: 14, emoji:'🐾', sizePx: 44});
+    });
+
+    // 6 страница: обнимашка => котята в 3 раза больше
+    const panel = document.getElementById('panel');
+    document.getElementById('hugBtn').addEventListener('click', ()=>{
+      panel.animate([
+        { transform: 'scale(1)', filter: 'brightness(1)' },
+        { transform: 'scale(1.01)', filter: 'brightness(1.08)' },
+        { transform: 'scale(1)', filter: 'brightness(1)' }
+      ], { duration: 520, easing: 'ease-in-out' });
+
+      // котята крупные (3x)
+      fallBurst({durationMs: 4000, count: 14, emoji:'🐱', sizePx: 72});
+      showToast('🫶');
+    });
+
+    // ---------------------------
+    // 5 страница: плавающая розовая лапка (ловить)
+    // ---------------------------
+    const huntArea = document.getElementById('huntArea');
+    const targetPaw = document.getElementById('targetPaw');
+    const huntScore = document.getElementById('huntScore');
+    let caught = 0;
+
+    // движение по области: синус + отражение от границ
+    let px = 40, py = 60;
+    let vx = 0.9, vy = 0.75; // скорость (мягкая)
+    let lastT = performance.now();
+
+    function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
+    function movePaw(t){
+      const dt = Math.min(34, t - lastT);
+      lastT = t;
+
+      const rect = huntArea.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+
+      // размеры лапки
+      const size = 120;
+      const maxX = Math.max(0, w - size);
+      const maxY = Math.max(0, h - size);
+
+      // базовое движение + мягкая волна
+      px += vx * dt * 0.12;
+      py += vy * dt * 0.12;
+
+      const waveX = Math.sin(t/420) * 10;
+      const waveY = Math.cos(t/520) * 10;
+
+      // отражение от границ
+      if(px < 0){ px = 0; vx *= -1; }
+      if(py < 0){ py = 0; vy *= -1; }
+      if(px > maxX){ px = maxX; vx *= -1; }
+      if(py > maxY){ py = maxY; vy *= -1; }
+
+      const x = clamp(px + waveX, 0, maxX);
+      const y = clamp(py + waveY, 0, maxY);
+
+      targetPaw.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+
+      requestAnimationFrame(movePaw);
+    }
+    requestAnimationFrame(movePaw);
+
+    async function catchPaw(){
+      caught++;
+      huntScore.textContent = `Поймано: ${caught}`;
+
+      // маленький "поп"
+      if(audioCtx && master){
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        const now = audioCtx.currentTime;
+        o.type='sine';
+        o.frequency.setValueAtTime(900, now);
+        g.gain.setValueAtTime(0.0001, now);
+        g.gain.exponentialRampToValueAtTime(0.06, now+0.01);
+        g.gain.exponentialRampToValueAtTime(0.0001, now+0.09);
+        o.connect(g); g.connect(master);
+        o.start(now); o.stop(now+0.1);
+      }
+
+      // “прыжок”
+      targetPaw.animate([
+        { transform: targetPaw.style.transform + ' scale(1)' },
+        { transform: targetPaw.style.transform + ' scale(1.08)' },
+        { transform: targetPaw.style.transform + ' scale(1)' }
+      ], { duration: 220, easing: 'ease-out' });
+    }
+
+    targetPaw.addEventListener('click', async ()=>{
+      await ensureAudio().catch(()=>{});
+      catchPaw();
+    });
+    targetPaw.addEventListener('touchstart', async (e)=>{
+      e.preventDefault();
+      await ensureAudio().catch(()=>{});
+      catchPaw();
+    }, {passive:false});
+
+    // ---------------------------
+    // 7 страница: сюрприз-текст + комплименты
+    // ---------------------------
+    const surpriseText = document.getElementById('surpriseText');
+    const compliments = [
+      "я тебя очень сильно люблю",
+      "ты невероятно красивая 💚",
+      "твоя улыбка — это магия ✨",
+      "ты умная и сильная",
+      "ты лучшая, правда",
+      "с тобой спокойно",
+      "ты делаешь мир добрее",
+      "ты достойна самого хорошего",
+      "мне повезло, что ты есть",
+      "я горжусь тобой"
+    ];
+    let compIdx = 0;
+
+    document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+      const text = compliments[compIdx % compliments.length];
+      compIdx++;
+
+      surpriseText.textContent = text;
+      surpriseText.animate(
+        [{ transform:'scale(0.98)', opacity:0.2 }, { transform:'scale(1)', opacity:1 }],
+        { duration: 260, easing:'ease-out' }
+      );
+
+      // лёгкий "дождик" котят, но немного
+      fallBurst({durationMs: 3000, count: 10, emoji:'😺', sizePx: 46});
+    });
+
+    document.getElementById('restartBtn').addEventListener('click', ()=>{
+      showPage(0);
+    });
+
+    // ---------------------------
+    // Подстраховка
+    // ---------------------------
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.hidden){
+        if(purrOn) stopPurr();
+      }
+    });
+  </script>
+</body>
+</html>
