@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>успокотительное для Леры❤️🐱</title>
+
+  <style>
+    :root{
+      --bg1:#0b1f14;
+      --bg2:#0f2d1d;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+
+      --mint:#a8ffd3;
+      --mint2:#7ef2bf;
+      --leaf:#2be38f;
+      --glow: rgba(46, 255, 170, .22);
+
+      --radius: 26px;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --blur: 14px;
+
+      --dur: 520ms; /* скорость перелистывания */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      overflow:hidden;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(46,255,170,.18), transparent 55%),
+        radial-gradient(900px 600px at 80% 30%, rgba(42,210,140,.14), transparent 52%),
+        linear-gradient(180deg, var(--bg2), var(--bg1));
+    }
+
+    /* лёгкая “плавающая” зелёная дымка — успокаивает */
+    .mist{
+      position:fixed; inset:-20%;
+      pointer-events:none;
+      background:
+        radial-gradient(closest-side, rgba(168,255,211,.14), transparent 70%) 20% 30%/38% 38% no-repeat,
+        radial-gradient(closest-side, rgba(126,242,191,.12), transparent 72%) 70% 20%/42% 42% no-repeat,
+        radial-gradient(closest-side, rgba(43,227,143,.10), transparent 70%) 55% 75%/50% 50% no-repeat;
+      filter: blur(18px);
+      opacity:.9;
+      animation: floatMist 14s ease-in-out infinite alternate;
+    }
+    @keyframes floatMist{
+      from{ transform: translate3d(-2%, -1%, 0) scale(1); }
+      to{ transform: translate3d(2%, 1.5%, 0) scale(1.03); }
+    }
+
+    .wrap{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: max(12px, env(safe-area-inset-top)) 12px max(16px, env(safe-area-inset-bottom));
+    }
+
+    .phone{
+      width:min(420px, 100%);
+      height:min(780px, 100%);
+      position:relative;
+      border-radius: 34px;
+      padding: 14px;
+    }
+
+    .panel{
+      height:100%;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* Верхняя полоска прогресса */
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(0,0,0,.10), transparent);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--leaf);
+      box-shadow: 0 0 18px rgba(46,255,170,.45);
+      flex:0 0 auto;
+    }
+    .pageLabel{
+      font-size:14px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .bar{
+      margin-left:auto;
+      width: 45%;
+      height: 10px;
+      background: rgba(255,255,255,.10);
+      border-radius:999px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, rgba(168,255,211,.25), rgba(43,227,143,.85));
+      box-shadow: 0 0 18px rgba(46,255,170,.35);
+      border-radius:999px;
+      transition: width var(--dur) ease;
+    }
+
+    /* Контент страниц */
+    .content{
+      height: calc(100% - 54px);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding: 18px 16px 16px;
+      position:relative;
+    }
+
+    .card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--stroke);
+      padding: 18px 16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+    }
+
+    h1,h2{
+      margin:0 0 10px;
+      line-height:1.1;
+      letter-spacing:.2px;
+    }
+    h1{
+      font-size: 28px;
+      text-shadow: 0 0 22px var(--glow);
+    }
+    h2{
+      font-size: 20px;
+      color: rgba(255,255,255,.92);
+    }
+    p{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .accent{
+      background: linear-gradient(90deg, var(--mint), var(--leaf));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .kittens{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+      opacity:.95;
+    }
+    .kitty{
+      font-size: 28px;
+      filter: drop-shadow(0 0 10px rgba(46,255,170,.15));
+      transform: translateZ(0);
+      animation: bob 2.6s ease-in-out infinite;
+    }
+    .kitty:nth-child(2){animation-delay:.2s}
+    .kitty:nth-child(3){animation-delay:.35s}
+    .kitty:nth-child(4){animation-delay:.5s}
+    .kitty:nth-child(5){animation-delay:.65s}
+    @keyframes bob{
+      0%,100%{transform: translateY(0)}
+      50%{transform: translateY(-6px)}
+    }
+
+    .controls{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+      margin-top: 14px;
+    }
+
+    .btn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.92);
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select:none;
+      min-width: 120px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btnPrimary{
+      background: linear-gradient(90deg, rgba(168,255,211,.20), rgba(43,227,143,.38));
+      border-color: rgba(168,255,211,.25);
+      box-shadow: 0 0 0 1px rgba(46,255,170,.10) inset, 0 10px 24px rgba(0,0,0,.22);
+    }
+
+    .btnGhost{
+      opacity:.92;
+    }
+
+    .small{
+      font-size: 13px;
+      color: rgba(255,255,255,.68);
+      margin-top: 10px;
+    }
+
+    /* Перелистывание */
+    .pages{
+      position:relative;
+      flex: 1;
+      min-height: 0;
+    }
+    .page{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      opacity:0;
+      transform: translateX(22px);
+      transition: opacity var(--dur) ease, transform var(--dur) ease;
+      pointer-events:none;
+    }
+    .page.active{
+      opacity:1;
+      transform: translateX(0);
+      pointer-events:auto;
+    }
+    .page.exitLeft{
+      opacity:0;
+      transform: translateX(-22px);
+    }
+    .page.exitRight{
+      opacity:0;
+      transform: translateX(22px);
+    }
+
+    /* Дыхание (вдох 4с, выдох 5с) */
+    .breathBox{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .orb{
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(168,255,211,.60), rgba(43,227,143,.12) 55%, rgba(0,0,0,.0) 75%),
+        radial-gradient(circle at 55% 60%, rgba(43,227,143,.35), rgba(0,0,0,0) 65%);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 0 26px rgba(46,255,170,.18);
+      transform: scale(0.86);
+      animation: inhale 4s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    .breathText{
+      flex:1;
+      min-width:0;
+    }
+    .phase{
+      font-weight: 900;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,.92);
+    }
+    .timerLine{
+      height: 10px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+      overflow:hidden;
+    }
+    .timerLine i{
+      display:block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(168,255,211,.22), rgba(43,227,143,.85));
+      border-radius: 999px;
+      will-change: width;
+    }
+    @keyframes inhale{ to { transform: scale(1.05); } }
+    /* выдох будет через JS, чтобы точно 4/5 сек */
+
+    /* Падающие лапки — крупнее, мало, 4 сек */
+    .pawsLayer{
+      position:absolute; inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index: 20;
+    }
+    .paw{
+      position:absolute;
+      top:-60px;
+      font-size: 44px; /* в ~2 раза больше */
+      opacity:.92;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.22));
+      will-change: transform, opacity;
+    }
+
+    /* Постоянная мелкая “тишина” — очень редкие лапки на фоне */
+    .ambientLayer{
+      position:absolute; inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index: 5;
+      opacity:.55;
+    }
+    .ambientPaw{
+      position:absolute;
+      top:-80px;
+      font-size: 26px;
+      opacity:.35;
+      filter: blur(.1px);
+      will-change: transform, opacity;
+    }
+
+    /* Маленькая “антистресс-кнопка” */
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.90);
+      font-weight: 800;
+      cursor:pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pill:active{ transform: translateY(1px); }
+
+    .toast{
+      position:absolute;
+      left:50%;
+      bottom: 92px;
+      transform: translateX(-50%);
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.92);
+      font-size: 13px;
+      opacity:0;
+      transition: opacity 220ms ease;
+      pointer-events:none;
+      z-index: 50;
+      white-space: nowrap;
+    }
+    .toast.show{opacity:1}
+
+    /* маленькие эмодзи в тексте */
+    .line{
+      display:block;
+      text-align:center;
+      font-size: 18px;
+      color: rgba(255,255,255,.86);
+      line-height: 1.35;
+    }
+
+    /* чтобы на очень маленьких экранах не резало */
+    @media (max-height: 640px){
+      .orb{ width: 104px; height: 104px; }
+      h1{font-size: 26px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mist"></div>
+
+  <div class="wrap">
+    <div class="phone">
+      <div class="panel" id="panel">
+        <div class="ambientLayer" id="ambientLayer"></div>
+
+        <div class="topbar">
+          <span class="dot"></span>
+          <div class="pageLabel" id="pageLabel">Страница 1 из 7</div>
+          <div class="bar"><i id="barFill"></i></div>
+        </div>
+
+        <div class="content">
+          <div class="pages" id="pages">
+            <!-- PAGE 1 -->
+            <section class="page active" data-title="успокотительное для Леры❤️🐱">
+              <div class="card">
+                <h1><span class="accent">успокотительное</span> для Леры❤️🐱</h1>
+                <p>
+                  Тут всё простое: зелёный спокойный фон, котики, дыхание и мягкие “антистрессы”.
+                  Без лишнего шума.
+                </p>
+
+                <div class="kittens" aria-hidden="true">
+                  <span class="kitty">🐱</span><span class="kitty">😺</span><span class="kitty">😸</span>
+                  <span class="kitty">🐾</span><span class="kitty">🐈</span>
+                </div>
+
+                <div class="controls" style="margin-top:14px;">
+                  <button class="pill" id="soundBtn" type="button">🔊 Включить звук 🐾</button>
+                  <button class="pill" id="purrBtn" type="button">😺 Мурчание</button>
+                </div>
+
+                <div class="small">
+                  На iPhone звук включается после первого нажатия — это нормально.
+                </div>
+              </div>
+
+              <div class="card">
+                <h2>Мини-настройка</h2>
+                <p>
+                  Если хочешь тише — нажми “Мурчание” ещё раз, оно выключится.
+                </p>
+              </div>
+            </section>
+
+            <!-- PAGE 2: Breathing -->
+            <section class="page" data-title="Дышим вместе 🌿">
+              <div class="card">
+                <h2>Дыхание: вдох 4с → выдох 5с</h2>
+
+                <div class="breathBox">
+                  <div class="orb" id="orb"></div>
+
+                  <div class="breathText">
+                    <div class="phase" id="phaseText">Вдох… 4</div>
+                    <div class="timerLine"><i id="breathFill"></i></div>
+                    <div class="small" id="hintText">Смотри на шарик и дыши спокойно.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h2>Подсказка</h2>
+                <p>
+                  Если мысли скачут — просто возвращай внимание к “вдох/выдох”.
+                  Даже 4 цикла уже помогают.
+                </p>
+              </div>
+            </section>
+
+            <!-- PAGE 3: Kitten mantra -->
+            <section class="page" data-title="Кототерапия 🐾">
+              <div class="card">
+                <h2>Повторяй как мантру</h2>
+                <span class="line">🐱 Я в безопасности.</span>
+                <span class="line">🐾 Я справляюсь.</span>
+                <span class="line">🌿 Мне можно отдыхать.</span>
+                <span class="line">😺 Я рядом с собой.</span>
+              </div>
+
+              <div class="card">
+                <h2>Нажми “мяу”</h2>
+                <p>Это маленький антистресс: мягкий звук + лапки на 4 секунды.</p>
+                <div class="controls">
+                  <button class="btn btnPrimary" id="meowBtn" type="button">🐱 Мяу</button>
+                  <button class="btn btnGhost" id="pawsBtn" type="button">🐾 Лапки</button>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 4: Slow comfort -->
+            <section class="page" data-title="Тихая комната 🌙">
+              <div class="card">
+                <h2>Тут просто тишина</h2>
+                <p>
+                  Если хочется “выключиться” — посиди 20 секунд.
+                  Потрогай пальцем экран и посчитай 5 вдохов.
+                </p>
+                <div class="kittens" aria-hidden="true" style="opacity:.85;margin-top:12px">
+                  <span class="kitty">🐈‍⬛</span><span class="kitty">🐾</span><span class="kitty">🌿</span><span class="kitty">😴</span>
+                </div>
+              </div>
+
+              <div class="card">
+                <h2>Заземление 5–4–3–2–1</h2>
+                <p>
+                  5 вещей вижу • 4 ощущаю • 3 слышу • 2 чувствую запах • 1 вкус.
+                </p>
+              </div>
+            </section>
+
+            <!-- PAGE 5: Tiny game -->
+            <section class="page" data-title="Поймай лапку 🎯">
+              <div class="card">
+                <h2>Мини-игра: “поймай лапку”</h2>
+                <p>
+                  Нажимай на лапку, чтобы “поймать” стресс.
+                </p>
+
+                <div class="controls">
+                  <button class="btn btnPrimary" id="spawnPawBtn" type="button">🐾 Поймать</button>
+                  <button class="btn btnGhost" id="calmBtn" type="button">🌿 Спокойно</button>
+                </div>
+
+                <div class="small" id="scoreText">Поймано: 0</div>
+              </div>
+
+              <div class="card">
+                <h2>Кот говорит:</h2>
+                <p id="catSays">«Ты молодец. Даже если сегодня просто дожила — уже победа.»</p>
+              </div>
+            </section>
+
+            <!-- PAGE 6: Sweet message -->
+            <section class="page" data-title="Сообщение для Леры 💚">
+              <div class="card">
+                <h2>Лера, маленькое напоминание 💚</h2>
+                <p>
+                  Ты не обязана быть сильной всегда.
+                  Тебе можно быть мягкой, уставшей, настоящей.
+                  И ты всё равно прекрасная.
+                </p>
+              </div>
+
+              <div class="card">
+                <h2>Кнопка “обнимашка”</h2>
+                <p>Нажми — будет мягкий “обнимательный” эффект (без лагов).</p>
+                <div class="controls">
+                  <button class="btn btnPrimary" id="hugBtn" type="button">🫶 Обнимашка</button>
+                  <button class="btn btnGhost" id="purrBtn2" type="button">😺 Мурчание</button>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 7: End -->
+            <section class="page" data-title="Финал ✨">
+              <div class="card">
+                <h2>Готово 🌿</h2>
+                <p>
+                  Когда тревожно — возвращайся сюда.
+                  Котики всегда на месте.
+                </p>
+                <div class="kittens" aria-hidden="true" style="margin-top:12px">
+                  <span class="kitty">🐱</span><span class="kitty">🐾</span><span class="kitty">💚</span><span class="kitty">😺</span>
+                </div>
+              </div>
+
+              <div class="card">
+                <h2>Сюрприз</h2>
+                <p>Нажми — тихий “взрыв лапок” на 4 секунды (редко и без зависаний).</p>
+                <div class="controls">
+                  <button class="btn btnPrimary" id="surpriseBtn" type="button">✨ Сюрприз</button>
+                  <button class="btn btnGhost" id="restartBtn" type="button">🔁 Сначала</button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- навигация -->
+          <div class="controls">
+            <button class="btn btnGhost" id="backBtn" type="button">← Назад</button>
+            <button class="btn btnPrimary" id="nextBtn" type="button">Дальше →</button>
+          </div>
+
+          <div class="toast" id="toast">Звук включён ✅</div>
+
+          <!-- слой для падения лапок при переходах -->
+          <div class="pawsLayer" id="pawsLayer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------------------------
+    // ПЕРЕЛИСТЫВАНИЕ СТРАНИЦ
+    // ---------------------------
+    const pages = Array.from(document.querySelectorAll('.page'));
+    const pageLabel = document.getElementById('pageLabel');
+    const barFill = document.getElementById('barFill');
+    const nextBtn = document.getElementById('nextBtn');
+    const backBtn = document.getElementById('backBtn');
+
+    let idx = 0;
+    function setProgress(){
+      pageLabel.textContent = `Страница ${idx+1} из ${pages.length}`;
+      barFill.style.width = `${Math.round(((idx+1)/pages.length)*100)}%`;
+      backBtn.style.opacity = idx===0 ? .55 : 1;
+      nextBtn.textContent = idx===pages.length-1 ? 'Готово ✅' : 'Дальше →';
+    }
+
+    function showPage(nextIndex){
+      if(nextIndex < 0 || nextIndex >= pages.length || nextIndex === idx) return;
+
+      // лапки на 4 секунды при переходе
+      pawsBurst(4_000, 16); // 16 лапок за 4с (не много)
+
+      const cur = pages[idx];
+      const nxt = pages[nextIndex];
+
+      cur.classList.remove('active');
+      cur.classList.remove('exitLeft','exitRight');
+
+      // направление анимации
+      if(nextIndex > idx){
+        cur.classList.add('exitLeft');
+        nxt.classList.remove('exitLeft');
+        nxt.classList.add('active');
+      }else{
+        cur.classList.add('exitRight');
+        nxt.classList.remove('exitRight');
+        nxt.classList.add('active');
+      }
+
+      idx = nextIndex;
+      setProgress();
+    }
+
+    nextBtn.addEventListener('click', ()=> showPage(idx+1));
+    backBtn.addEventListener('click', ()=> showPage(idx-1));
+
+    // свайпы не делаю, чтобы не было “ошибок” на разных браузерах
+    setProgress();
+
+    // ---------------------------
+    // ПАДАЮЩИЕ ЛАПКИ (4 секунды)
+    // ---------------------------
+    const pawsLayer = document.getElementById('pawsLayer');
+
+    function random(min,max){ return Math.random()*(max-min)+min; }
+
+    function createPaw(xPercent){
+      const el = document.createElement('div');
+      el.className = 'paw';
+      el.textContent = '🐾';
+      el.style.left = `${xPercent}%`;
+      el.style.opacity = random(0.65, 0.95);
+      const rot = random(-22, 22);
+      const drift = random(-40, 40);
+      const duration = random(2600, 3800); // падение ~3с
+      el.style.transform = `translate3d(${drift}px, 0px, 0px) rotate(${rot}deg)`;
+
+      pawsLayer.appendChild(el);
+
+      // анимация через requestAnimationFrame
+      const start = performance.now();
+      const startY = -70;
+      const endY = window.innerHeight + 120;
+
+      function tick(t){
+        const p = Math.min(1, (t-start)/duration);
+        const eased = 1 - Math.pow(1-p, 2.2);
+        const y = startY + (endY-startY)*eased;
+
+        el.style.transform = `translate3d(${drift}px, ${y}px, 0) rotate(${rot + p*18}deg)`;
+        el.style.opacity = String((1 - p) * 0.95);
+
+        if(p < 1){
+          requestAnimationFrame(tick);
+        }else{
+          el.remove();
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function pawsBurst(totalMs, count){
+      // чистим старое, чтобы не копилось и не лагало
+      while(pawsLayer.firstChild) pawsLayer.removeChild(pawsLayer.firstChild);
+
+      const interval = Math.floor(totalMs / count);
+      let made = 0;
+
+      const timer = setInterval(()=>{
+        made++;
+        // равномерно по ширине
+        createPaw(random(5, 95));
+        if(made >= count){
+          clearInterval(timer);
+        }
+      }, interval);
+
+      // страховка: остановить через totalMs
+      setTimeout(()=> clearInterval(timer), totalMs + 60);
+    }
+
+    // ---------------------------
+    // РЕДКИЙ ФОНОВЫЙ “ДРИФТ” ЛАПОК (чтобы было по всей странице, но не много)
+    // ---------------------------
+    const ambientLayer = document.getElementById('ambientLayer');
+
+    function spawnAmbient(){
+      const el = document.createElement('div');
+      el.className = 'ambientPaw';
+      el.textContent = '🐾';
+      el.style.left = `${random(3,97)}%`;
+      el.style.opacity = random(0.18, 0.42);
+
+      ambientLayer.appendChild(el);
+
+      const duration = random(9000, 14000);
+      const drift = random(-28, 28);
+      const rot = random(-25, 25);
+      const start = performance.now();
+      const startY = -90;
+      const endY = window.innerHeight + 160;
+
+      function tick(t){
+        const p = Math.min(1, (t-start)/duration);
+        const y = startY + (endY-startY)*p;
+        el.style.transform = `translate3d(${drift}px, ${y}px, 0) rotate(${rot + p*10}deg)`;
+        if(p < 1) requestAnimationFrame(tick);
+        else el.remove();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // редко: 1 лапка каждые 2.3–3.2 сек
+    setInterval(()=> {
+      if(document.hidden) return;
+      // ограничение: не больше 6 одновременно
+      if(ambientLayer.childElementCount < 6) spawnAmbient();
+    }, Math.floor(random(2300, 3200)));
+
+    // ---------------------------
+    // ДЫХАНИЕ: ВДОХ 4с, ВЫДОХ 5с (точно)
+    // ---------------------------
+    const orb = document.getElementById('orb');
+    const phaseText = document.getElementById('phaseText');
+    const breathFill = document.getElementById('breathFill');
+
+    let breathPhase = 'inhale'; // inhale/exhale
+    let phaseStart = performance.now();
+
+    function setOrbScale(scale){
+      orb.style.transform = `scale(${scale})`;
+    }
+
+    function breathLoop(t){
+      const inhaleMs = 4000;
+      const exhaleMs = 5000;
+
+      if(breathPhase === 'inhale'){
+        const p = Math.min(1, (t - phaseStart) / inhaleMs);
+        // плавный рост
+        const eased = 0.5 - Math.cos(p*Math.PI)/2;
+        setOrbScale(0.86 + eased*(1.05-0.86));
+        breathFill.style.width = `${Math.round(p*100)}%`;
+        phaseText.textContent = `Вдох… ${Math.max(0, Math.ceil(4 - p*4))}`;
+
+        if(p >= 1){
+          breathPhase = 'exhale';
+          phaseStart = t;
+        }
+      }else{
+        const p = Math.min(1, (t - phaseStart) / exhaleMs);
+        const eased = 0.5 - Math.cos(p*Math.PI)/2;
+        // плавное уменьшение
+        setOrbScale(1.05 - eased*(1.05-0.86));
+        breathFill.style.width = `${Math.round((1-p)*100)}%`;
+        phaseText.textContent = `Выдох… ${Math.max(0, Math.ceil(5 - p*5))}`;
+
+        if(p >= 1){
+          breathPhase = 'inhale';
+          phaseStart = t;
+        }
+      }
+
+      requestAnimationFrame(breathLoop);
+    }
+    requestAnimationFrame(breathLoop);
+
+    // ---------------------------
+    // ЗВУКИ: “мурчание” + “мяу” (WebAudio)
+    // Safari требует жест пользователя => кнопка “Включить звук”
+    // ---------------------------
+    const toast = document.getElementById('toast');
+    const soundBtn = document.getElementById('soundBtn');
+    const purrBtn = document.getElementById('purrBtn');
+    const purrBtn2 = document.getElementById('purrBtn2');
+    const meowBtn = document.getElementById('meowBtn');
+
+    let audioCtx = null;
+    let master = null;
+
+    function showToast(text){
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(()=> toast.classList.remove('show'), 1200);
+    }
+
+    async function ensureAudio(){
+      if(!audioCtx){
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        master = audioCtx.createGain();
+        master.gain.value = 0.8;
+        master.connect(audioCtx.destination);
+      }
+      if(audioCtx.state !== 'running'){
+        await audioCtx.resume();
+      }
+    }
+
+    // МУРЧАНИЕ: мягкий “шум” + фильтр + лёгкая модуляция
+    let purrOn = false;
+    let purrNodes = null;
+
+    function startPurr(){
+      if(!audioCtx || !master) return;
+
+      // создаём шумовой буфер
+      const bufferSize = 2 * audioCtx.sampleRate;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const out = noiseBuffer.getChannelData(0);
+
+      // "розовый/бурый" шум (приближенно, дешево по CPU)
+      let last = 0;
+      for(let i=0;i<bufferSize;i++){
+        const white = Math.random()*2 - 1;
+        last = (last*0.98) + (white*0.02);
+        out[i] = last * 0.9;
+      }
+
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = noiseBuffer;
+      noise.loop = true;
+
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 260;
+
+      const gain = audioCtx.createGain();
+      gain.gain.value = 0.0;
+
+      // LFO для “урчания”
+      const lfo = audioCtx.createOscillator();
+      lfo.type = 'sine';
+      lfo.frequency.value = 26;
+
+      const lfoGain = audioCtx.createGain();
+      lfoGain.gain.value = 0.12;
+
+      lfo.connect(lfoGain);
+      lfoGain.connect(gain.gain);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(master);
+
+      // плавный старт
+      const now = audioCtx.currentTime;
+      gain.gain.setValueAtTime(0.0, now);
+      gain.gain.linearRampToValueAtTime(0.22, now + 0.35);
+
+      noise.start();
+      lfo.start();
+
+      purrNodes = {noise, filter, gain, lfo, lfoGain};
+      purrOn = true;
+      showToast('Мурчание включено 😺');
+    }
+
+    function stopPurr(){
+      if(!purrNodes) return;
+      const {noise, gain, lfo} = purrNodes;
+
+      const now = audioCtx.currentTime;
+      gain.gain.cancelScheduledValues(now);
+      gain.gain.setValueAtTime(gain.gain.value, now);
+      gain.gain.linearRampToValueAtTime(0.0, now + 0.25);
+
+      setTimeout(()=>{
+        try{ noise.stop(); }catch(e){}
+        try{ lfo.stop(); }catch(e){}
+        purrNodes = null;
+      }, 300);
+
+      purrOn = false;
+      showToast('Мурчание выключено');
+    }
+
+    function togglePurr(){
+      if(purrOn) stopPurr();
+      else startPurr();
+    }
+
+    // МЯУ: короткий тон + огибающая (очень лёгкий)
+    function playMeow(){
+      if(!audioCtx || !master) return;
+
+      const osc = audioCtx.createOscillator();
+      osc.type = 'triangle';
+      const gain = audioCtx.createGain();
+
+      const now = audioCtx.currentTime;
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(320, now + 0.18);
+      osc.frequency.exponentialRampToValueAtTime(420, now + 0.28);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.14, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.34);
+
+      osc.connect(gain);
+      gain.connect(master);
+
+      osc.start(now);
+      osc.stop(now + 0.36);
+    }
+
+    soundBtn.addEventListener('click', async ()=>{
+      await ensureAudio();
+      showToast('Звук включён ✅');
+    });
+
+    purrBtn.addEventListener('click', async ()=>{
+      await ensureAudio();
+      togglePurr();
+    });
+    purrBtn2.addEventListener('click', async ()=>{
+      await ensureAudio();
+      togglePurr();
+    });
+
+    meowBtn.addEventListener('click', async ()=>{
+      await ensureAudio();
+      playMeow();
+      pawsBurst(4000, 14);
+    });
+
+    // отдельная кнопка лапок
+    document.getElementById('pawsBtn').addEventListener('click', ()=>{
+      pawsBurst(4000, 16);
+    });
+
+    // ---------------------------
+    // Мини-игра “поймать лапку”
+    // ---------------------------
+    const spawnPawBtn = document.getElementById('spawnPawBtn');
+    const calmBtn = document.getElementById('calmBtn');
+    const scoreText = document.getElementById('scoreText');
+    const catSays = document.getElementById('catSays');
+    let score = 0;
+
+    const sayings = [
+      '«Тише. Всё хорошо. Я рядом.»',
+      '«Ты дышишь — значит уже справляешься.»',
+      '«Можно не успевать. Можно просто быть.»',
+      '«Ты умница. Погладь кота (мысленно).»',
+      '«Шаг за шагом. Даже маленький шаг — шаг.»'
+    ];
+
+    function spawnClickablePaw(){
+      const el = document.createElement('div');
+      el.className = 'paw';
+      el.textContent = '🐾';
+      el.style.left = `${random(8, 88)}%`;
+      el.style.top = `${random(18, 60)}%`;
+      el.style.transform = `translate3d(0,0,0) rotate(${random(-18,18)}deg)`;
+      el.style.transition = 'transform 220ms ease, opacity 220ms ease';
+      el.style.cursor = 'pointer';
+      el.style.pointerEvents = 'auto';
+
+      pawsLayer.appendChild(el);
+
+      const onTap = async ()=>{
+        await ensureAudio().catch(()=>{});
+        // мягкий “клик” (очень тихий)
+        if(audioCtx && master){
+          const o = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          const now = audioCtx.currentTime;
+          o.type='sine';
+          o.frequency.setValueAtTime(820, now);
+          g.gain.setValueAtTime(0.0001, now);
+          g.gain.exponentialRampToValueAtTime(0.06, now+0.01);
+          g.gain.exponentialRampToValueAtTime(0.0001, now+0.09);
+          o.connect(g); g.connect(master);
+          o.start(now); o.stop(now+0.1);
+        }
+
+        score++;
+        scoreText.textContent = `Поймано: ${score}`;
+        catSays.textContent = sayings[score % sayings.length];
+
+        el.style.transform = 'scale(1.15)';
+        el.style.opacity = '0';
+        setTimeout(()=> el.remove(), 220);
+      };
+
+      el.addEventListener('click', onTap, {once:true});
+      el.addEventListener('touchstart', (e)=>{ e.preventDefault(); onTap(); }, {once:true, passive:false});
+
+      // авто-исчезновение
+      setTimeout(()=> { if(el.isConnected) { el.style.opacity='0'; setTimeout(()=>el.remove(), 220); } }, 2500);
+    }
+
+    spawnPawBtn.addEventListener('click', ()=>{
+      // чтобы не перегрузить — максимум 1 лапка за нажатие
+      spawnClickablePaw();
+    });
+
+    calmBtn.addEventListener('click', ()=>{
+      score = 0;
+      scoreText.textContent = `Поймано: 0`;
+      catSays.textContent = '«Спокойно. Мы никуда не спешим.»';
+      pawsBurst(4000, 12);
+    });
+
+    // ---------------------------
+    // “Обнимашка” и “Сюрприз”
+    // ---------------------------
+    const panel = document.getElementById('panel');
+
+    document.getElementById('hugBtn').addEventListener('click', ()=>{
+      // мягкая вспышка/пульс без лагов
+      panel.animate([
+        { transform: 'scale(1)', filter: 'brightness(1)' },
+        { transform: 'scale(1.01)', filter: 'brightness(1.08)' },
+        { transform: 'scale(1)', filter: 'brightness(1)' }
+      ], { duration: 520, easing: 'ease-in-out' });
+
+      pawsBurst(4000, 12);
+      showToast('Обнимашка 💚');
+    });
+
+    document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+      // чуть больше, но все равно безопасно
+      pawsBurst(4000, 18);
+      showToast('✨');
+    });
+
+    document.getElementById('restartBtn').addEventListener('click', ()=>{
+      showPage(0);
+    });
+
+    // ---------------------------
+    // Подстраховка: если вкладка скрыта — не нагружаем
+    // ---------------------------
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.hidden){
+        // можно выключать мурчание при сворачивании
+        if(purrOn) stopPurr();
+      }
+    });
+  </script>
+</body>
+</html>
