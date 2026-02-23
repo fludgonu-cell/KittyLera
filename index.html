@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>успокотительное для Леры❤️🐱</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#1a1030;
+      --card: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.16);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --accent1:#ff5aa5;
+      --accent2:#ffd1e6;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --radius: 22px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 900px at 20% 10%, rgba(255,90,165,.22), transparent 55%),
+                  radial-gradient(1100px 900px at 80% 30%, rgba(255,209,230,.14), transparent 55%),
+                  radial-gradient(1200px 900px at 50% 90%, rgba(120,80,255,.18), transparent 55%),
+                  linear-gradient(180deg, var(--bg2), var(--bg1));
+      overflow:hidden;
+    }
+
+    /* Лёгкий фон: медленные “пылинки-лапки” */
+    .bg{
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.55;
+      filter: blur(.1px);
+    }
+    .bg span{
+      position:absolute;
+      font-size: clamp(14px, 2.2vw, 22px);
+      animation: floaty linear infinite;
+      opacity: .25;
+      transform: translate3d(0,0,0);
+      will-change: transform;
+    }
+    @keyframes floaty{
+      from{ transform: translate3d(0, 110vh, 0) rotate(0deg); }
+      to{ transform: translate3d(0, -20vh, 0) rotate(180deg); }
+    }
+
+    .wrap{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: max(14px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom)) 14px;
+    }
+
+    .card{
+      width:min(620px, 96vw);
+      height:min(760px, 90vh);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* Верхняя панель прогресса */
+    .topbar{
+      padding: 14px 16px 10px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--accent1);
+      box-shadow: 0 0 0 3px rgba(255,90,165,.18);
+      flex:0 0 auto;
+    }
+    .pageLabel{
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .bar{
+      flex:1;
+      height:10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.12);
+      overflow:hidden;
+      position:relative;
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      width: 20%;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      border-radius:999px;
+      transition: width 500ms ease;
+    }
+
+    /* Контент */
+    .content{
+      height: calc(100% - 58px);
+      padding: 18px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .title{
+      font-size: clamp(26px, 4.4vw, 40px);
+      line-height:1.12;
+      margin:0;
+      letter-spacing: .2px;
+      background: linear-gradient(90deg, #ffffff, #ffd1e6 45%, #ff5aa5);
+      -webkit-background-clip: text;
+      background-clip:text;
+      color: transparent;
+      text-shadow: 0 10px 28px rgba(255,90,165,.10);
+    }
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(14px, 2.7vw, 18px);
+      line-height:1.5;
+    }
+
+    /* “Страницы” */
+    .pages{
+      position:relative;
+      flex:1;
+      min-height:0;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+      overflow:hidden;
+    }
+    .page{
+      position:absolute; inset:0;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      opacity:0;
+      transform: translateX(14px);
+      pointer-events:none;
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+    .page.active{
+      opacity:1;
+      transform: translateX(0);
+      pointer-events:auto;
+    }
+    .page.leaving{
+      opacity:0;
+      transform: translateX(-14px);
+      pointer-events:none;
+    }
+
+    /* Котокарточка */
+    .kitty{
+      flex:1;
+      min-height:0;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      background: rgba(255,255,255,.06);
+      position:relative;
+    }
+    .kitty img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.03);
+    }
+    .overlayGrad{
+      position:absolute; inset:0;
+      background: radial-gradient(900px 360px at 20% 10%, rgba(255,90,165,.22), transparent 60%),
+                  radial-gradient(900px 360px at 80% 40%, rgba(255,209,230,.18), transparent 60%),
+                  linear-gradient(180deg, transparent 50%, rgba(0,0,0,.30));
+      pointer-events:none;
+    }
+    .tapHint{
+      position:absolute;
+      left:12px; bottom:10px;
+      padding:8px 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,.85);
+      background: rgba(0,0,0,.26);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Дыхание */
+    .breathWrap{
+      flex:1;
+      min-height:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .breath{
+      width:min(280px, 62vw);
+      aspect-ratio: 1 / 1;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,209,230,.45), rgba(255,90,165,.22) 40%, rgba(255,255,255,.06) 72%, rgba(0,0,0,.08));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 24px 70px rgba(255,90,165,.08), 0 24px 70px rgba(0,0,0,.25);
+      animation: breathe 10s ease-in-out infinite;
+      position:relative;
+      overflow:hidden;
+    }
+    .breath::after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.30), transparent 55%);
+      transform: rotate(10deg);
+      opacity:.55;
+    }
+    @keyframes breathe{
+      0%{ transform: scale(.86); filter: blur(0px); }
+      50%{ transform: scale(1.00); filter: blur(.1px); }
+      100%{ transform: scale(.86); }
+    }
+    .breathText{
+      position:absolute;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding: 0 14px;
+    }
+    .breathText b{
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .breathText span{
+      font-size: 14px;
+      color: var(--muted);
+      line-height:1.4;
+    }
+
+    /* Текстовые блоки */
+    .note{
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.88);
+      line-height: 1.55;
+      font-size: 16px;
+    }
+    .list{
+      margin:0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.86);
+      line-height:1.6;
+      font-size: 16px;
+    }
+    .list li{ margin: 8px 0; }
+
+    /* Кнопки */
+    .controls{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      margin-top: 4px;
+    }
+    .btn{
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.92);
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      justify-content:center;
+      flex:1;
+      transition: transform 140ms ease, background 200ms ease;
+    }
+    .btn:active{ transform: translateY(1px) scale(.99); }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: #2b0b1b;
+      box-shadow: 0 14px 35px rgba(255,90,165,.22);
+    }
+    .btn.small{
+      flex:0 0 auto;
+      padding: 10px 12px;
+      font-weight: 800;
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    /* Частицы (лёгкие) */
+    .fxLayer{
+      pointer-events:none;
+      position:absolute; inset:0;
+      overflow:hidden;
+    }
+    .p{
+      position:absolute;
+      will-change: transform, opacity;
+      animation: fall var(--t) ease-in forwards;
+      font-size: var(--s);
+      opacity: .95;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.25));
+      transform: translate3d(0,0,0);
+    }
+    @keyframes fall{
+      0%{ transform: translate3d(var(--x), -14px, 0) rotate(0deg); opacity:0; }
+      10%{ opacity:1; }
+      100%{ transform: translate3d(var(--x), 110%, 0) rotate(180deg); opacity:0; }
+    }
+
+    .footerHint{
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      text-align:center;
+      padding-top: 2px;
+    }
+
+    /* маленькая адаптация */
+    @media (max-height: 650px){
+      .card{ height: 92vh; }
+      .note, .list{ font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- лёгкий фон -->
+  <div class="bg" id="bg"></div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="topbar">
+        <div class="dot"></div>
+        <div class="pageLabel" id="pageLabel">Страница 1 из 5</div>
+        <div class="bar"><i id="barFill"></i></div>
+      </div>
+
+      <div class="content">
+        <h1 class="title">успокотительное для Леры❤️🐱</h1>
+        <p class="subtitle" id="subtitle">Тут можно просто чуть-чуть выдохнуть. Я рядом — и котики тоже.</p>
+
+        <div class="pages" id="pages">
+          <div class="fxLayer" id="fx"></div>
+
+          <!-- 1 -->
+          <section class="page active" data-sub="Тут можно просто чуть-чуть выдохнуть. Я рядом — и котики тоже.">
+            <div class="note">
+              Привет, Лера 🌙<br/>
+              Это маленький уютный уголок, чтобы стало спокойнее.
+              Если тревожно — просто листай дальше. Тут всё мягко и без спешки.
+            </div>
+            <div class="kitty" id="kittyBox1">
+              <img id="kittyImg1" alt="Котик" />
+              <div class="overlayGrad"></div>
+              <div class="tapHint">Тапни по котику — “мур” 😺</div>
+            </div>
+          </section>
+
+          <!-- 2 -->
+          <section class="page" data-sub="Погладь котика. Тап — и становится теплее.">
+            <div class="note">
+              Погладь котика 🐾<br/>
+              Каждый тап — маленькая нежность и спокойствие.
+            </div>
+            <div class="kitty" id="kittyBox2">
+              <img id="kittyImg2" alt="Котик" />
+              <div class="overlayGrad"></div>
+              <div class="tapHint">Ещё тап… ещё “мур”…</div>
+            </div>
+          </section>
+
+          <!-- 3 -->
+          <section class="page" data-sub="Дышим вместе: вдох… выдох…">
+            <div class="note">
+              Давай 3 цикла дыхания: <b>вдох 4</b> — <b>выдох 6</b>.<br/>
+              Смотри на круг и просто повторяй.
+            </div>
+            <div class="breathWrap">
+              <div class="breath" aria-hidden="true"></div>
+              <div class="breathText">
+                <b id="breathTitle">Вдох</b>
+                <span id="breathHint">4 секунды</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4 -->
+          <section class="page" data-sub="Несколько тёплых мыслей для тебя.">
+            <div class="note">
+              Немного спокойных слов 🌸
+            </div>
+            <ul class="list">
+              <li>Ты не обязана всё тянуть на себе. Можно просто быть.</li>
+              <li>Даже маленький отдых — это уже забота о себе.</li>
+              <li>Ты очень ценная. И это не надо заслуживать.</li>
+              <li>Я рядом. И котики рядом 😺</li>
+            </ul>
+            <div class="kitty" id="kittyBox4">
+              <img id="kittyImg4" alt="Котик" />
+              <div class="overlayGrad"></div>
+            </div>
+          </section>
+
+          <!-- 5 -->
+          <section class="page" data-sub="Финальный антистресс: мур и конфетти-лапки.">
+            <div class="note">
+              Последняя страница 🫶<br/>
+              Нажми “Сюрприз” — будет лёгкий салют лапок (без лагов).
+            </div>
+
+            <div class="row">
+              <button class="btn small" id="soundBtn" type="button">🔊 Включить мурчание</button>
+              <button class="btn primary" id="surpriseBtn" type="button">✨ Сюрприз</button>
+            </div>
+
+            <div class="kitty" id="kittyBox5">
+              <img id="kittyImg5" alt="Котик" />
+              <div class="overlayGrad"></div>
+              <div class="tapHint">Можно просто смотреть на котика 🙂</div>
+            </div>
+
+            <div class="footerHint">
+              Если звук не включился — нажми кнопку ещё раз (iPhone так требует).
+            </div>
+          </section>
+        </div>
+
+        <div class="controls">
+          <button class="btn" id="prevBtn" type="button">← Назад</button>
+          <button class="btn primary" id="nextBtn" type="button">Дальше →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- звук “мур” (можешь заменить на свой mp3 рядом: purr.mp3) -->
+  <audio id="purr" preload="auto">
+    <!-- Если хочешь свой звук: положи рядом файл purr.mp3 и раскомментируй строку ниже -->
+    <!-- <source src="purr.mp3" type="audio/mpeg"> -->
+  </audio>
+
+  <script>
+    // ===============================
+    // 1) КОТЯТА: можно интернет или свои файлы
+    // ===============================
+
+    // Вариант А (по умолчанию): интернет-котята (просто чтобы сразу всё работало)
+    const KITTIES = [
+      "https://placekitten.com/900/1200",
+      "https://placekitten.com/901/1200",
+      "https://placekitten.com/902/1200",
+      "https://placekitten.com/903/1200",
+      "https://placekitten.com/904/1200",
+      "https://placekitten.com/905/1200",
+    ];
+
+    // Вариант Б (свои котята): положи рядом cat1.jpg..cat6.jpg и включи это:
+    // const KITTIES = ["cat1.jpg","cat2.jpg","cat3.jpg","cat4.jpg","cat5.jpg","cat6.jpg"];
+
+    // ===============================
+    // 2) НАСТРОЙКИ “антилага”
+    // ===============================
+    const BG_COUNT = 18;          // сколько “лапок” на фоне (мало, чтобы не лагало)
+    const TRANSITION_MS = 900;    // плавность перелистывания
+    const FALL_PARTICLES = 10;    // сколько частиц при перелистывании (мало)
+    const SURPRISE_PARTICLES = 18;// сколько при “Сюрприз” (мало)
+
+    // ===============================
+    // DOM
+    // ===============================
+    const pagesEl = document.getElementById("pages");
+    const pages = Array.from(document.querySelectorAll(".page"));
+    const pageLabel = document.getElementById("pageLabel");
+    const barFill = document.getElementById("barFill");
+    const subtitleEl = document.getElementById("subtitle");
+
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const fx = document.getElementById("fx");
+    const bg = document.getElementById("bg");
+
+    const kittyImg1 = document.getElementById("kittyImg1");
+    const kittyImg2 = document.getElementById("kittyImg2");
+    const kittyImg4 = document.getElementById("kittyImg4");
+    const kittyImg5 = document.getElementById("kittyImg5");
+
+    const kittyBox1 = document.getElementById("kittyBox1");
+    const kittyBox2 = document.getElementById("kittyBox2");
+    const kittyBox4 = document.getElementById("kittyBox4");
+    const kittyBox5 = document.getElementById("kittyBox5");
+
+    const soundBtn = document.getElementById("soundBtn");
+    const surpriseBtn = document.getElementById("surpriseBtn");
+    const purr = document.getElementById("purr");
+
+    const breathTitle = document.getElementById("breathTitle");
+    const breathHint  = document.getElementById("breathHint");
+
+    let index = 0;
+    let isAnimating = false;
+
+    // ===============================
+    // Background floating emojis
+    // ===============================
+    function makeBackground() {
+      const icons = ["🐾","💗","🌸","🐾","✨","💞","🐾"];
+      const w = window.innerWidth;
+      bg.innerHTML = "";
+      for (let i=0;i<BG_COUNT;i++){
+        const s = document.createElement("span");
+        s.textContent = icons[(Math.random()*icons.length)|0];
+        s.style.left = (Math.random()*100).toFixed(2) + "vw";
+        const dur = 16 + Math.random()*20; // 16-36s
+        s.style.animationDuration = dur + "s";
+        s.style.animationDelay = (-Math.random()*dur) + "s";
+        s.style.opacity = (0.12 + Math.random()*0.22).toFixed(2);
+        bg.appendChild(s);
+      }
+    }
+    makeBackground();
+    window.addEventListener("resize", makeBackground);
+
+    // ===============================
+    // Kitty images
+    // ===============================
+    function setKitty(imgEl, n){
+      imgEl.src = KITTIES[n % KITTIES.length] + (KITTIES[n % KITTIES.length].includes("placekitten") ? `?v=${Date.now()+n}` : "");
+    }
+    setKitty(kittyImg1, 0);
+    setKitty(kittyImg2, 1);
+    setKitty(kittyImg4, 2);
+    setKitty(kittyImg5, 3);
+
+    // ===============================
+    // Particles (light)
+    // ===============================
+    function spawnParticles(count, mode="fall"){
+      // mode: "fall" (при переходе) / "burst" (сюрприз)
+      const iconsFall = ["🐾","💗","🌸","✨","💞"];
+      const iconsBurst = ["🐾","💗","✨","🐾","💞"];
+      const icons = mode === "burst" ? iconsBurst : iconsFall;
+
+      const rect = pagesEl.getBoundingClientRect();
+
+      for (let i=0;i<count;i++){
+        const el = document.createElement("div");
+        el.className = "p";
+        el.textContent = icons[(Math.random()*icons.length)|0];
+
+        const x = (Math.random()*rect.width) | 0;
+        const size = 16 + Math.random()*14; // 16-30px
+        const t = mode === "burst" ? (900 + Math.random()*700) : (1200 + Math.random()*900);
+
+        el.style.setProperty("--x", x + "px");
+        el.style.setProperty("--s", size + "px");
+        el.style.setProperty("--t", t + "ms");
+
+        if(mode === "burst"){
+          // небольшой “взрыв” без физики — просто вниз, но гуще
+          el.style.filter = "drop-shadow(0 14px 26px rgba(255,90,165,.18))";
+        }
+
+        fx.appendChild(el);
+        setTimeout(()=> el.remove(), t + 100);
+      }
+    }
+
+    // ===============================
+    // Page switching
+    // ===============================
+    function updateTop(){
+      pageLabel.textContent = `Страница ${index+1} из ${pages.length}`;
+      barFill.style.width = ((index+1)/pages.length*100).toFixed(2) + "%";
+
+      const sub = pages[index].getAttribute("data-sub") || "";
+      subtitleEl.textContent = sub;
+
+      prevBtn.style.opacity = index === 0 ? ".55" : "1";
+      prevBtn.style.pointerEvents = index === 0 ? "none" : "auto";
+
+      nextBtn.textContent = index === pages.length-1 ? "Снова →" : "Дальше →";
+    }
+
+    function go(to){
+      if(isAnimating) return;
+      if(to < 0) to = 0;
+      if(to > pages.length-1) to = 0;
+
+      isAnimating = true;
+
+      const from = index;
+      const oldPage = pages[from];
+      const newPage = pages[to];
+
+      oldPage.classList.remove("active");
+      oldPage.classList.add("leaving");
+
+      newPage.classList.add("active");
+      newPage.classList.remove("leaving");
+
+      index = to;
+      updateTop();
+
+      // лёгкий эффект при перелистывании
+      spawnParticles(FALL_PARTICLES, "fall");
+
+      setTimeout(()=>{
+        oldPage.classList.remove("leaving");
+        isAnimating = false;
+      }, TRANSITION_MS);
+    }
+
+    prevBtn.addEventListener("click", ()=> go(index-1));
+    nextBtn.addEventListener("click", ()=> go(index+1));
+
+    updateTop();
+
+    // ===============================
+    // Breathing text (simple, calm)
+    // ===============================
+    // цикл 10с: 0-5 вдох, 5-10 выдох (синхронно анимации)
+    setInterval(()=>{
+      const t = (Date.now()/1000) % 10;
+      if(t < 5){
+        breathTitle.textContent = "Вдох";
+        breathHint.textContent  = "4–5 секунд";
+      } else {
+        breathTitle.textContent = "Выдох";
+        breathHint.textContent  = "5 секунд";
+      }
+    }, 250);
+
+    // ===============================
+    // “Мур” (чтобы работало в Safari — запускается по нажатию)
+    // ===============================
+    function playPurr(){
+      // Если пользователь не добавил файл purr.mp3, просто делаем лёгкий “тык”
+      // (Без внешних файлов на iOS всё равно не заиграет.)
+      if(purr.children.length){
+        purr.loop = true;
+        purr.volume = 0.25;
+        purr.play().catch(()=>{});
+      }
+    }
+    function stopPurr(){
+      purr.pause();
+    }
+    let soundOn = false;
+    soundBtn.addEventListener("click", ()=>{
+      soundOn = !soundOn;
+      if(soundOn){
+        playPurr();
+        soundBtn.textContent = "🔇 Выключить мур";
+      }else{
+        stopPurr();
+        soundBtn.textContent = "🔊 Включить мурчание";
+      }
+      spawnParticles(6, "burst");
+    });
+
+    // ===============================
+    // Kitty tap effect (very light)
+    // ===============================
+    function tapKitty(){
+      spawnParticles(8, "burst");
+      // маленький “мур” без аудио — вибрация (если поддерживается)
+      if(navigator.vibrate) navigator.vibrate(18);
+    }
+    [kittyBox1, kittyBox2, kittyBox4, kittyBox5].forEach(el=>{
+      el.addEventListener("click", tapKitty, {passive:true});
+    });
+
+    // ===============================
+    // Surprise button (safe, no lags)
+    // ===============================
+    let surpriseCooldown = false;
+    surpriseBtn.addEventListener("click", ()=>{
+      if(surpriseCooldown) return; // защита от двойного нажатия
+      surpriseCooldown = true;
+
+      spawnParticles(SURPRISE_PARTICLES, "burst");
+      setTimeout(()=> surpriseCooldown = false, 1200);
+    });
+
+    // ===============================
+    // Подмена котиков на разных страницах (чтобы было разнообразие)
+    // ===============================
+    let kittyStep = 0;
+    function rotateKitties(){
+      kittyStep++;
+      setKitty(kittyImg1, kittyStep+0);
+      setKitty(kittyImg2, kittyStep+1);
+      setKitty(kittyImg4, kittyStep+2);
+      setKitty(kittyImg5, kittyStep+3);
+    }
+    // каждые ~12 секунд мягко меняем котиков
+    setInterval(rotateKitties, 12000);
+  </script>
+</body>
+</html>
